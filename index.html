@@ -34,24 +34,24 @@
                     </div>
                     <ul tabindex="-1"
                         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Home</a></li>
+                        <li><a onclick="navigateTo('home')">Home</a></li>
                         <li>
-                            <a>Products</a>
+                            <a onclick="navigateTo('products')">Products</a>
                         </li>
-                        <li><a>About</a></li>
-                        <li><a>Contact</a></li>
+                        <li><a onclick="navigateTo('about')">About</a></li>
+                        <li><a onclick="navigateTo('contact')">Contact</a></li>
                     </ul>
                 </div>
                 <a class="text-xl font-bold text-blue-600">SwiftCard</a>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
+                    <li><a onclick="navigateTo('home')">Home</a></li>
                     <li>
-                        <a>Products</a>
+                        <a onclick="navigateTo('products')">Products</a>
                     </li>
-                    <li><a>About</a></li>
-                    <li><a>Contact</a></li>
+                    <li><a onclick="navigateTo('about')">About</a></li>
+                    <li><a onclick="navigateTo('contact')">Contact</a></li>
                 </ul>
             </div>
             <div class="navbar-end">
@@ -65,7 +65,8 @@
             </div>
         </div>
     </header>
-    <section>
+    <!-- HOME PAGE -->
+    <section id="home-page" class="page-content">
         <div class="hero lg:min-h-[500px] lg:max-h-[720px] sm:min-h-[85vh] md:min-h-screen relative overflow-hidden "
             style="background-image: url('./Assets/banner-image.png');">
 
@@ -83,7 +84,7 @@
                         Shop now and experience the best in online shopping!
                     </p>
                     <div class="pt-3 sm:pt-6">
-                        <button class="btn btn-primary btn-lg px-8 sm:px-10">
+                        <button class="btn btn-primary btn-lg px-8 sm:px-10" onclick="navigateTo('products')">
                             Shop Now
                         </button>
                     </div>
@@ -114,14 +115,48 @@
                     </div>
                     <div class="card box-shadow-lg p-6 rounded-lg bg-white">
                         <i class="fa-solid fa-recycle text-4xl text-green-600 mb-4"></i>
-                        <h2 class="text-xl font-semibold mb-2">Secure Payments</h2>
-                        <p class="text-gray-600">Shop with confidence knowing that your payments are protected by our secure payment gateway.</p>
+                        <h2 class="text-xl font-semibold mb-2">Easy Return</h2>
+                        <p class="text-gray-600">Not satisfied ? Easily return your products withing 30 day.</p>
                     </div>
 
                 </div>
             </div>
         </div>
+    </section>
 
+    <!-- PRODUCTS PAGE -->
+    <section id="products-page" class="page-content hidden">
+        <div class="min-h-screen bg-gray-50 px-[80px] py-10">
+            <h1 class="text-xl font-bold mb-8 text-gray-800 text-center">Our Products</h1>
+            <div id="categories-container" class="mb-6">
+                Loading categories...
+            </div>
+            <div id="products-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product cards will be inserted here when a category is selected -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT PAGE -->
+    <section id="about-page" class="page-content hidden">
+        <div class="min-h-screen bg-gray-50 px-[80px] py-10">
+            <h1 class="text-4xl font-bold mb-8 text-gray-800">About Us</h1>
+            <!-- About content will go here -->
+            <div class="text-center py-20">
+                <p class="text-gray-600 text-lg">Add your about information here...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact-page" class="page-content hidden">
+        <div class="min-h-screen bg-gray-50 px-[80px] py-10">
+            <h1 class="text-4xl font-bold mb-8 text-gray-800">Contact Us</h1>
+            <!-- Contact content will go here -->
+            <div class="text-center py-20">
+                <p class="text-gray-600 text-lg">Add your contact information here...</p>
+            </div>
+        </div>
     </section>
 
 
