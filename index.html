@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftCard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind and Daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="navbar bg-base-100 shadow-sm px-[80px]">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><a>Home</a></li>
+                        <li>
+                            <a>Products</a>
+                        </li>
+                        <li><a>About</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+                <a class="text-xl font-bold text-blue-600">SwiftCard</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a>Home</a></li>
+                    <li>
+                        <a>Products</a>
+                    </li>
+                    <li><a>About</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img alt="Tailwind CSS Navbar component"
+                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="hero lg:min-h-[500px] lg:max-h-[720px] sm:min-h-[85vh] md:min-h-screen relative overflow-hidden "
+            style="background-image: url('./Assets/banner-image.png');">
+
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/20"></div>
+            <div class="hero-content w-full px-5 sm:px-8 md:px-12 py-16 sm:py-20 md:py-0
+               text-neutral-content text-left max-w-5xl mx-auto z-10">
+                <div class="max-w-2xl space-y-6 md:space-y-8">
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-5xl font-bold leading-tight
+                 drop-shadow-xl text-shadow-lg">
+                        Best Collection For You
+                    </h1>
+                    <p class="text-lg sm:text-xl md:text-lg opacity-95 max-w-xl
+                drop-shadow-md leading-relaxed">
+                        Discover the latest fashion, electronics, and more with SwiftCard.
+                        Shop now and experience the best in online shopping!
+                    </p>
+                    <div class="pt-3 sm:pt-6">
+                        <button class="btn btn-primary btn-lg px-8 sm:px-10">
+                            Shop Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-100 text-center py-10 px-[100px]">
+            <div class="text-center pb-5">
+                <h1 class="font-bold text-2xl">Why Choose Us</h1>
+                <p class="opacity-70">We provide the best Shopping experience with top-notch services</p>
+            </div>
+            <div>
+                <div class="card-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+                    <div class="card box-shadow-lg p-6 rounded-lg bg-white">
+                        <i class="fa-solid fa-truck-fast text-4xl text-blue-500 mb-4"></i>
+                        <h2 class="text-xl font-semibold mb-2">Fast Shipping</h2>
+                        <p class="text-gray-600">Get your orders delivered quickly and reliably with our fast shipping options.</p>
+                    </div>
+                    <div class="card box-shadow-lg p-6 rounded-lg bg-white">
+                        <i class="fa-solid fa-shield-halved text-4xl text-green-500 mb-4"></i>
+                        <h2 class="text-xl font-semibold mb-2">Secure Payments</h2>
+                        <p class="text-gray-600">Shop with confidence knowing that your payments are protected by our secure payment gateway.</p>
+                    </div>
+                    <div class="card box-shadow-lg p-6 rounded-lg bg-white">
+                        <i class="fa-solid fa-headset text-4xl text-purple-500 mb-4"></i>
+                        <h2 class="text-xl font-semibold mb-2">24/7 Support</h2>
+                        <p class="text-gray-600">Our customer support team is available around the clock to assist you with any questions or concerns.</p>
+                    </div>
+                    <div class="card box-shadow-lg p-6 rounded-lg bg-white">
+                        <i class="fa-solid fa-recycle text-4xl text-green-600 mb-4"></i>
+                        <h2 class="text-xl font-semibold mb-2">Secure Payments</h2>
+                        <p class="text-gray-600">Shop with confidence knowing that your payments are protected by our secure payment gateway.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+/* Gives nice depth to white/ light text */
+.text-shadow-lg {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Or even stronger */
+.drop-shadow-xl {
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.5));
+}
