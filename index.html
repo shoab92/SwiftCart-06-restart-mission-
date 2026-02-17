@@ -101,17 +101,20 @@
                     <div class="card box-shadow-lg p-6 rounded-lg bg-white">
                         <i class="fa-solid fa-truck-fast text-4xl text-blue-500 mb-4"></i>
                         <h2 class="text-xl font-semibold mb-2">Fast Shipping</h2>
-                        <p class="text-gray-600">Get your orders delivered quickly and reliably with our fast shipping options.</p>
+                        <p class="text-gray-600">Get your orders delivered quickly and reliably with our fast shipping
+                            options.</p>
                     </div>
                     <div class="card box-shadow-lg p-6 rounded-lg bg-white">
                         <i class="fa-solid fa-shield-halved text-4xl text-green-500 mb-4"></i>
                         <h2 class="text-xl font-semibold mb-2">Secure Payments</h2>
-                        <p class="text-gray-600">Shop with confidence knowing that your payments are protected by our secure payment gateway.</p>
+                        <p class="text-gray-600">Shop with confidence knowing that your payments are protected by our
+                            secure payment gateway.</p>
                     </div>
                     <div class="card box-shadow-lg p-6 rounded-lg bg-white">
                         <i class="fa-solid fa-headset text-4xl text-purple-500 mb-4"></i>
                         <h2 class="text-xl font-semibold mb-2">24/7 Support</h2>
-                        <p class="text-gray-600">Our customer support team is available around the clock to assist you with any questions or concerns.</p>
+                        <p class="text-gray-600">Our customer support team is available around the clock to assist you
+                            with any questions or concerns.</p>
                     </div>
                     <div class="card box-shadow-lg p-6 rounded-lg bg-white">
                         <i class="fa-solid fa-recycle text-4xl text-green-600 mb-4"></i>
@@ -128,11 +131,8 @@
     <section id="products-page" class="page-content hidden">
         <div class="min-h-screen bg-gray-50 px-[80px] py-10">
             <h1 class="text-xl font-bold mb-8 text-gray-800 text-center">Our Products</h1>
-            <div id="categories-container" class="mb-6">
-                Loading categories...
-            </div>
-            <div id="products-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Product cards will be inserted here when a category is selected -->
+            <div id="categories-container">
+                Product cards will be dynamically inserted here
             </div>
         </div>
     </section>
@@ -159,7 +159,53 @@
         </div>
     </section>
 
+    <footer class="footer border-2 border-blue-500 px-[80px] mx-auto bg-[#1e2a3a] ">
+        <section class="py-10 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+                <h1 class="text-blue-400 text-xl font-bold mb-5">SwiftCard</h1>
+                <p class="text-white opacity-65">Your one-stop shop for all you fashion <br> and lifestyle needs.
+                    Quality products, fast <br> delevery, and Excellent support.</p>
 
+            </div>
+            <!-- 2 -->
+            <div class="opacity-65 font-semibold space-y-5">
+                <h1>QUICK LINK</h1>
+                <ul class="space-y-5">
+                    <li><a>Home</a></li>
+                    <li><a>Products</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Contacts</a></li>
+
+                </ul>
+            </div>
+            <div class="opacity-65 font-semibold space-y-5">
+                <h1>SUPPORT</h1>
+                <ul class="space-y-5">
+                    <li><a>FAQ</a></li>
+                    <li><a>Shipping</a></li>
+                    <li><a>Returns</a></li>
+                    <li><a>Privacy Policy</a></li>
+                </ul>
+            </div>
+            <!-- 3 -->
+            <div class="font-bold space-y-5">
+                <h1 class="opacity-65">SUBSCRIBE TO OUR NEWSLETTER</h1>
+                <P class="opacity-70">The latest news, articles, and resources,<br> sent to your inbox weekly</P>
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Enter your email" class="input !text-black input-bordered rounded-lg w-full max-w-xs" />
+                    <button class="btn rounded-lg btn-primary">Subscribe</button>
+            </div>
+            <!-- 4 -->
+            <div>
+
+            </div>
+
+        </section>
+        <section>
+
+        </section>
+
+    </footer>
 
     <script src="./script.js"></script>
 </body>

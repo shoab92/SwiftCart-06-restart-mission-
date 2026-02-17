@@ -38,12 +38,14 @@ const displayCategories = (categories) => {
     }
 
     categoriesContainer.innerHTML = ''; // পুরানো কন্টেন্ট ক্লিয়ার
+    // Arrange buttons in a centered flex row
+    categoriesContainer.classList.add('flex', 'flex-wrap', 'justify-center', 'items-center', 'gap-5');
 
     categories.forEach(category => {
         const btnDiv = document.createElement('div');
         // DaisyUI / Tailwind স্টাইলের সাথে মিলিয়ে বাটন
         btnDiv.innerHTML = `
-            <button class="btn btn-primary category-btn" 
+            <button class="btn btn-primary category-btn rounded-full text-center" 
                     data-category="${category}">
                 ${category.charAt(0).toUpperCase() + category.slice(1)}
             </button>
