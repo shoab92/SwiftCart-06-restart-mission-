@@ -8,18 +8,13 @@ function navigateTo(page) {
         selectedPage.classList.remove('hidden');
     }
 }
-
 loadAllProducts();
-// Home page default on load + categories load করা
 document.addEventListener('DOMContentLoaded', function() {
-    // Home page visible by default
     const homePage = document.getElementById('home-page');
     if (homePage) {
         homePage.classList.remove('hidden');
     }
 
-    // Products page-এ গেলে categories লোড করতে চাইলে এখানে না দিয়ে নিচের ফাংশন ব্যবহার করা যায়
-    // loadCategories();   ← এখানে না দিয়ে navigateTo-এর ভিতরে products চেক করবো
 });
 
 function loadAllProducts() {
@@ -28,11 +23,11 @@ function loadAllProducts() {
     fetch(url)
         .then(res => res.json())
         .then(products => {
-            displayProducts(products);     // ← তোমার নিজের displayProducts ফাংশন কল করবে
+            displayProducts(products); 
         })
         .catch(err => {
             console.error("All products load করতে সমস্যা:", err);
-            // চাইলে এখানে ইউজারকে একটা মেসেজ দেখাতে পারো
+          
         });
 }
 function displayProducts(products) {
@@ -47,7 +42,7 @@ function displayProducts(products) {
         return;
     }
 
-    container.innerHTML = ''; // পুরানো কার্ড মুছে ফেলা
+    container.innerHTML = ''; 
 
     products.forEach(product => {
         const card = document.createElement('div');
@@ -80,7 +75,7 @@ function displayProducts(products) {
                 $${parseFloat(product.price).toFixed(2)}
             </p>
             <div class="card-actions justify-between mt-4">
-                <button class="btn btn-sm "><i class="fa-regular fa-eye"></i> Details</button>
+                <button data-product-id="${product.id}" class="btn btn-sm details-btn "><i class="fa-regular fa-eye"></i> Details</button>
                 <button class="btn btn-sm btn-primary">Add to Cart</button>
             </div>
         </div>
@@ -101,21 +96,17 @@ function loadProductsByCategory(category) {
         })
         .catch(err => {
             console.error(`Category ${category} load error:`, err);
-            // অপশনাল: container.innerHTML = '<p class="text-center text-red-500">Failed to load products</p>';
         });
 }
 
 
 
-// ক্যাটাগরি লোড করার ফাংশন
 const loadCategories = () => {
     fetch('https://fakestoreapi.com/products/categories')
         .then(res => res.json())
         .then(categories => displayCategories(categories))
         .catch(err => console.error("Categories load error:", err));
 };
-
-// ক্যাটাগরি দেখানো
 const displayCategories = (categories) => {
     const categoriesContainer = document.getElementById('categories-container');
     if (!categoriesContainer) {
@@ -123,7 +114,7 @@ const displayCategories = (categories) => {
         return;
     }
 
-    categoriesContainer.innerHTML = ''; // পুরানো কন্টেন্ট ক্লিয়ার
+    categoriesContainer.innerHTML = ''; 
     // Arrange buttons in a centered flex row
     categoriesContainer.classList.add('flex', 'flex-wrap', 'justify-center', 'items-center', 'gap-5');
 
@@ -138,7 +129,6 @@ const displayCategories = (categories) => {
 
     categories.forEach(category => {
         const btnDiv = document.createElement('div');
-        // DaisyUI / Tailwind স্টাইলের সাথে মিলিয়ে বাটন
         btnDiv.innerHTML = `
             <button class="btn category-btn rounded-full text-center" 
                     data-category="${category}">
@@ -148,7 +138,6 @@ const displayCategories = (categories) => {
         categoriesContainer.appendChild(btnDiv);
     });
 };
-// যখনই Products পেজে যাবে → categories লোড করবে (একবার লোড হলেই হবে)
 function navigateTo(page) {
     const pages = document.querySelectorAll('.page-content');
     pages.forEach(p => p.classList.add('hidden'));
@@ -157,9 +146,8 @@ function navigateTo(page) {
     if (selectedPage) {
         selectedPage.classList.remove('hidden');
 
-        // Products page-এ গেলে categories লোড (প্রথমবার)
         if (page === 'products') {
-            if (!document.querySelector('.category-btn')) { // ইতিমধ্যে লোড হয়নি চেক
+            if (!document.querySelector('.category-btn')) {
                 loadCategories();
             }
         }
@@ -167,21 +155,119 @@ function navigateTo(page) {
 }
 
 document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('category-btn')) {
-        const category = e.target.dataset.category;
-
-        // সব বাটন থেকে active সরাও
+    // Category button handling
+    const categoryBtn = e.target.closest('.category-btn');
+    if (categoryBtn) {
+        const category = categoryBtn.dataset.category;
+        
         document.querySelectorAll('.category-btn').forEach(btn => {
             btn.classList.remove('btn-active', 'btn-primary');
+            btn.classList.add('btn-ghost');
         });
 
-        // ক্লিক করা বাটন active করো
-        e.target.classList.add('btn-active', 'btn-primary');
+        categoryBtn.classList.remove('btn-ghost');
+        categoryBtn.classList.add('btn-active', 'btn-primary');
 
         if (category === 'all') {
             loadAllProducts();
         } else {
             loadProductsByCategory(category);
         }
+        return;
     }
+
+    // Details button handling
+    if (e.target.closest('.details-btn')) {
+        e.stopPropagation(); 
+
+        const btn = e.target.closest('.details-btn');
+        const productId = btn.getAttribute('data-product-id');
+
+        if (!productId) return;
+
+        fetch(`https://fakestoreapi.com/products/${productId}`)
+            .then(res => res.json())
+            .then(product => {
+                console.log('Product details:', product);
+            })
+            .catch(err => console.error('Error:', err));
+        return;
+    }
+});
+
+function loadTopProducts() {
+    fetch('https://fakestoreapi.com/products?limit=4') 
+        .then(res => res.json())
+        .then(products => {
+            displayTopProducts(products);
+        })
+        .catch(err => {
+            console.error("Top products load error:", err);
+            document.getElementById('top-products-list').innerHTML = '<p class="col-span-full text-center text-gray-600">Failed to load top products</p>';
+        });
+}
+
+
+
+function displayTopProducts(products) {
+    const container = document.getElementById('top-products-list');
+    if (!container) {
+        console.error("top-products-list not found");
+        return;
+    }
+
+    container.innerHTML = ''; 
+
+    products.forEach(product => {
+        const card = document.createElement('div');
+        
+        card.innerHTML = `
+            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+                <figure class="px-6 pt-6">
+                    <img src="${product.image}" 
+                         alt="${product.title}" 
+                         class="rounded-xl h-48 w-full object-contain" />
+                </figure>
+                <div class="card-body pt-4">
+                    <h2 class="card-title text-base line-clamp-2">
+                        ${product.title}
+                    </h2>
+                    <div class="flex justify-between items-center text-sm opacity-80 mb-2">
+                        <span class="badge badge-sm bg-blue-100 capitalize">
+                            ${product.category}
+                        </span>
+                        <div class="flex items-center gap-1">
+                            <span class="font-medium">${product.rating.rate.toFixed(1)}</span>
+                            <span class="text-yellow-500">★</span>
+                            <span class="text-gray-500 text-xs">(${product.rating.count})</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">
+                        ${product.description ? product.description.substring(0, 60) + '...' : 'No description'}
+                    </p>
+                    <p class="text-xl font-bold text-primary mt-2">
+                        $${parseFloat(product.price).toFixed(2)}
+                    </p>
+                    <div class="card-actions justify-between mt-4">
+                        <button data-product-id="${product.id}" class="btn btn-sm details-btn">
+                            <i class="fa-regular fa-eye"></i> Details
+                        </button>
+                        <button class="btn btn-sm btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const homePage = document.getElementById('home-page');
+    if (homePage) {
+        homePage.classList.remove('hidden');
+    }
+
+    loadTopProducts();   
 });

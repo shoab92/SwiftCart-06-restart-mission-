@@ -55,11 +55,8 @@
                 </ul>
             </div>
             <div class="navbar-end">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                    <div class="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component"
-                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                    </div>
+                <div class="btn btn-magic bg-blue-100 hover:bg-blue-300">
+                    <button><i class="fa-solid fa-cart-shopping"></i></button>
                 </div>
 
             </div>
@@ -134,9 +131,7 @@
             <div id="categories-container" class="mb-8">
                 Loading categories...
             </div>
-            <div id="products-list"
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-                <!-- Product cards will be inserted here -->
+            <div id="products-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
             </div>
         </div>
     </section>
@@ -145,7 +140,6 @@
     <section id="about-page" class="page-content hidden">
         <div class="min-h-screen bg-gray-50 px-[80px] py-10">
             <h1 class="text-4xl font-bold mb-8 text-gray-800">About Us</h1>
-            <!-- About content will go here -->
             <div class="text-center py-20">
                 <p class="text-gray-600 text-lg">Add your about information here...</p>
             </div>
@@ -156,22 +150,28 @@
     <section id="contact-page" class="page-content hidden">
         <div class="min-h-screen bg-gray-50 px-[80px] py-10">
             <h1 class="text-4xl font-bold mb-8 text-gray-800">Contact Us</h1>
-            <!-- Contact content will go here -->
             <div class="text-center py-20">
                 <p class="text-gray-600 text-lg">Add your contact information here...</p>
             </div>
         </div>
     </section>
 
-    <footer class="footer px-[80px] flex flex-col justify-center  bg-[#1e2a3a]">
-        <section class="py-10 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b-1 border-gray-300">
+    <main id="top-products" class="px-[80px] py-16 bg-base-200">
+        <h2 class="text-3xl font-bold text-center mb-10">Top Products</h2>
+        <div id="top-products-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        </div>
+    </main>
+
+
+    <footer class="footer px-[80px] flex flex-col justify-center pb-10 bg-[#1e2a3a]">
+        <section
+            class="py-10 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b-1 border-gray-300 mx-auto">
             <div>
                 <h1 class="text-blue-400 text-xl font-bold mb-5">SwiftCard</h1>
                 <p class="text-white opacity-65">Your one-stop shop for all you fashion <br> and lifestyle needs.
                     Quality products, fast <br> delevery, and Excellent support.</p>
-
             </div>
-            <!-- 2 -->
             <div class="opacity-65 font-semibold space-y-5">
                 <h1>QUICK LINK</h1>
                 <ul class="space-y-5">
@@ -179,7 +179,6 @@
                     <li><a>Products</a></li>
                     <li><a>About</a></li>
                     <li><a>Contacts</a></li>
-
                 </ul>
             </div>
             <div class="opacity-65 font-semibold space-y-5">
@@ -191,7 +190,6 @@
                     <li><a>Privacy Policy</a></li>
                 </ul>
             </div>
-            <!-- 3 -->
             <div class="font-bold space-y-5">
                 <h1 class="opacity-65">SUBSCRIBE TO OUR NEWSLETTER</h1>
                 <P class="opacity-70">The latest news, articles, and resources,<br> sent to your inbox weekly</P>
@@ -200,14 +198,9 @@
                         class="input !text-black input-bordered rounded-lg w-full max-w-xs" />
                     <button class="btn rounded-lg btn-primary">Subscribe</button>
                 </div>
-                <!-- 4 -->
-                <div>
-
-                </div>
-
         </section>
-        <section class="text-white">
-            <h6>Hellow orldfsdngf</h6>
+        <section class="text-white mx-auto">
+            <h6 class="opacity-70 font-semibold">2025 SwiftCart , Inc All right Reserved</h6>
         </section>
 
     </footer>
